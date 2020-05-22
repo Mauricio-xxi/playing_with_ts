@@ -74,6 +74,45 @@ function showTodo(todo: ITodo) {
   console.log(`${todo.title} - ${todo.text}`);
 }
 
-// clases 
+// clases
 
+class User {
+  name: string;
+  public email: string;
+  protected age: number;
+  private sex: string;
 
+  constructor(name: string, email: string, age: number) {
+    this.name = name;
+    this.email = email;
+    this.age = age;
+  }
+
+  register() {
+    console.log(`${this.name} is registered`);
+  }
+
+  public showMeAge(): string {
+    console.log(`${this.age} years old`);
+    return `${this.age} years old`;
+  }
+
+  payInvoice() {
+    console.log(`${this.name} has paid`);
+  }
+}
+
+class Member extends User {
+  id: number;
+
+  constructor(id, name, email, age) {
+    super(name, email, age);
+    this.id = id;
+  }
+  payInvoice() {
+    super.payInvoice();
+  }
+}
+
+let alvaro = new User("alvaro", "alvaro@alvaro.com", 28);
+let manolo = new Member(1, "Manolo", "manolo@a.com", 25);
